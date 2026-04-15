@@ -8,11 +8,11 @@ if (isset($_POST['reviewtext'])) {
         $author_email = trim($_POST['author_email']);
         $review_text = trim($_POST['reviewtext']);
 
-        // 1. Quản lý Tác giả (Rút gọn)
+        // 1. Author 
         $existingAuthor = getAuthorByEmail($pdo, $author_email);
         $author_id = $existingAuthor ? $existingAuthor['id'] : insertAuthor($pdo, $author_name, $author_email);
 
-        // 2. Quản lý Phim
+        // 2. Film
         $film_id = null;
         if (!empty($_POST['new_film_name'])) {
             $new_film_name = trim($_POST['new_film_name']);
@@ -26,7 +26,7 @@ if (isset($_POST['reviewtext'])) {
             throw new Exception("Please select a film or enter a new film name!");
         }
 
-        // 3. Xử lý upload ảnh (Rút gọn)
+        // 3. Image
         $imageName = null;
         if (!empty($_FILES['review_image']['name']) && $_FILES['review_image']['error'] == UPLOAD_ERR_OK) {
             if (!is_dir('uploads')) mkdir('uploads', 0777, true);
@@ -35,24 +35,23 @@ if (isset($_POST['reviewtext'])) {
             move_uploaded_file($_FILES['review_image']['tmp_name'], 'uploads/' . $imageName);
         }
 
-        // 4. Thêm bài đánh giá
+        // 4. Add review
         insertReview($pdo, $review_text, $author_id, $film_id, $imageName);
 
         header('Location: reviews.php');
         exit();
 
-    } catch (Exception $e) { // Bắt chung mọi loại lỗi
+    } catch (Exception $e) {
         $title = 'Error';
         $output = '<div style="color:red; text-align:center; padding:20px;">Error: ' . $e->getMessage() . '</div>';
     }
 } else {
-    // GET: Tải form
+    // GET: Load form
     try {
         $title = 'Add new review';
         $current_name = '';
         $current_email = '';
         
-        // TỐI ƯU: Sử dụng hàm getAuthorById thay vì viết SQL thô
         if ($current_user_id) {
             $user = getAuthorById($pdo, $current_user_id);
             if ($user) {

@@ -2,7 +2,7 @@
 include_once 'includes/DatabaseConnection.php';
 include_once 'includes/DatabaseFunctions.php';
 
-// Bảo vệ: Bắt buộc đăng nhập
+// SECURITY: Must login
 if (!$current_user_id) {
     header('Location: login.php');
     exit();
@@ -11,24 +11,24 @@ if (!$current_user_id) {
 try {
     $search_keyword = $_GET['search'] ?? $_GET['search_keyword'] ?? $_POST['search_keyword'] ?? '';
 
-    // Bắt lấy ID của bài review đang được chọn để xem bình luận (nếu có)
+    // Get ID of the review being selected to view comments (if any)
     $active_review_id = $_GET['active_review'] ?? null;
 
     $reviews = getReviews($pdo, $search_keyword);
     
-    // Đảm bảo bạn đã thêm dòng code này để lấy bình luận cho TỪNG bài review (như đã hướng dẫn ở phần trước)
+    // Ensure you have added this line to get comments for EACH review (as instructed in the previous section)
     foreach ($reviews as $key => $review) {
         $reviews[$key]['comments'] = getCommentsByReviewId($pdo, $review['id']);
     }
 
-    // Bắt đầu nạp giao diện
+    // Start loading interface
     ob_start();
     include 'templates/reviews.html.php';
     $output = ob_get_clean();
 
     $search_keyword = $_GET['search'] ?? $_GET['search_keyword'] ?? '';
 
-    // TỐI ƯU: Rút gọn tên bảng bằng Alias (r, a, f) và dùng hàm query()
+    // OPTIMIZE: Shorten table name with Alias (r, a, f) and use query() function
     if ($search_keyword) {
         $sql = 'SELECT r.*, a.name as author_name, f.film_name 
                 FROM reviews r 
@@ -60,7 +60,7 @@ try {
     $totalReviews = count($reviews);
     $title = 'My Reviews';
 
-    // Tái sử dụng giao diện
+    // Reuse interface
     ob_start();
     include 'templates/reviews.html.php';
     $output = ob_get_clean();

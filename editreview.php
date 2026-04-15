@@ -14,7 +14,7 @@ if (!$review_to_edit) {
     die("<h2 style='color:red; text-align:center;'>Error: Review not found!</h2>"); 
 }
 
-// SECURITY: Kiểm tra quyền (Chỉ Tác giả hoặc Admin mới được sửa)
+// SECURITY: Check permission (Only Author or Admin can edit)
 if ($review_to_edit['author_id'] != $current_user_id && !$is_admin) {
     die("<h2 style='color:red; text-align:center;'>Error: You don't have permission to edit this review!</h2>");
 }
@@ -26,18 +26,18 @@ if (isset($_POST['reviewtext'])) {
         $review_text = trim($_POST['reviewtext']);
         $imageName = $_POST['current_image'] ?? null;
 
-        // Xử lý ảnh mới
+        // Image
         if (!empty($_FILES['review_image']['name']) && $_FILES['review_image']['error'] == UPLOAD_ERR_OK) {
             if (!is_dir('uploads')) mkdir('uploads', 0777, true);
             $imageName = time() . '_' . basename($_FILES['review_image']['name']); 
             move_uploaded_file($_FILES['review_image']['tmp_name'], 'uploads/' . $imageName);
         }
 
-        // Tác giả
+        // Author
         $existingAuthor = getAuthorByEmail($pdo, $author_email);
         $author_id = $existingAuthor ? $existingAuthor['id'] : insertAuthor($pdo, $author_name, $author_email);
 
-        // Cập nhật
+        // Update
         updateReview($pdo, $review_id, $review_text, $author_id, $_POST['film_id'], $imageName);
 
         header('Location: reviews.php?success=review_updated');
@@ -50,7 +50,7 @@ if (isset($_POST['reviewtext'])) {
 } else {
     $title = 'Edit review';
     
-    // Đẩy dữ liệu sang template
+    // Push data to template
     $review = $review_to_edit;
     $films = getFilms($pdo);
     

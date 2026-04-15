@@ -2,7 +2,7 @@
 include_once 'includes/DatabaseConnection.php';
 include_once 'includes/DatabaseFunctions.php';
 
-// Chỉ Admin mới được truy cập
+// Admin only
 if (!$is_admin) {
     header('Location: index.php');
     exit();
@@ -10,7 +10,7 @@ if (!$is_admin) {
 
 if (isset($_POST['submit'])) {
     try {
-        // TỐI ƯU: Truyền thẳng dữ liệu đã trim() vào hàm để tiết kiệm biến
+        // Update user
         updateAuthor($pdo, $_POST['id'], trim($_POST['name']), trim($_POST['email']), $_POST['is_admin']);
 
         header('Location: admin.php?success=user_updated');
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
         $output = 'Error: ' . $e->getMessage();
     }
 } else {
-    // TỐI ƯU: Bắt lỗi nếu URL không có ?id=
+    // Error if URL has no ?id=
     if (!isset($_GET['id'])) {
         header('Location: admin.php');
         exit();

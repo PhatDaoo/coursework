@@ -1,4 +1,4 @@
-/* Thiết lập chung để giao diện nhất quán  */
+/* unique UI set up  */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
@@ -63,7 +63,7 @@ nav a:hover {
     color: var(--secondary-color);
 }
 
-/* Nội dung chính  */
+/* Main content  */
 main {
     max-width: 900px;
     margin: 2rem auto;
@@ -74,7 +74,7 @@ main {
     min-height: 60vh;
 }
 
-/* Style cho các bài đánh giá (Reviews) */
+/* Style for reviews */
 blockquote {
     border-left: 5px solid var(--secondary-color);
     background: #f9f9f9;
@@ -106,7 +106,7 @@ footer {
     margin-top: 2rem;
 }
 
-/* Responsive cho thiết bị di động  */
+/* Responsive for mobile devices  */
 @media (max-width: 600px) {
     main {
         margin: 1rem;
@@ -159,7 +159,6 @@ footer {
     background-color: #2980b9;
 }
 
-/* Container bao bọc form tạo hiệu ứng Card (Thẻ) */
 .form-container {
     background: var(--white);
     max-width: 500px;
@@ -167,9 +166,7 @@ footer {
     padding: 2.5rem 2rem;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    /* Đổ bóng mềm mại */
     border-top: 5px solid var(--secondary-color);
-    /* Điểm nhấn viền trên */
 }
 
 .form-container h2 {
@@ -184,7 +181,6 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    /* Khoảng cách đều giữa các thành phần */
 }
 
 .form-group {
@@ -199,7 +195,6 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Kiểu dáng cho ô nhập liệu */
 .form-group textarea {
     padding: 15px;
     border: 2px solid #e1e8ed;
@@ -209,19 +204,17 @@ footer {
     transition: all 0.3s ease;
     background-color: #f8f9fa;
     resize: vertical;
-    /* Chỉ cho phép kéo giãn chiều dọc */
 }
 
-/* Hiệu ứng Accessibility (Khả năng truy cập) khi focus */
+/* Accessibility when focus */
 .form-group textarea:focus {
     border-color: var(--secondary-color);
     outline: none;
     box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
-    /* Viền sáng mờ bên ngoài */
     background-color: var(--white);
 }
 
-/* Kiểu dáng cho nút bấm */
+/* Style for button */
 .submit-btn {
     background-color: var(--secondary-color);
     color: var(--white);
@@ -235,23 +228,20 @@ footer {
     margin-top: 10px;
 }
 
-/* Hiệu ứng khi di chuột và click vào nút */
+/* Style for button when hover and click */
 .submit-btn:hover {
     background-color: #2980b9;
     transform: translateY(-2px);
-    /* Nút bấm hơi nẩy lên */
     box-shadow: 0 4px 10px rgba(41, 128, 185, 0.3);
 }
 
 .submit-btn:active {
     transform: translateY(0);
-    /* Nút lún xuống khi click */
 }
 
-/* Kiểu dáng cho nút Xóa */
+/* Style for delete button */
 .delete-btn {
     background-color: #e74c3c;
-    /* Màu đỏ cảnh báo */
     color: white;
     border: none;
     padding: 8px 15px;
@@ -316,7 +306,7 @@ footer {
     font-weight: bold;
 }
 
-/* Style cho phần đếm tổng số bài review */
+/* Style for total number of reviews */
 .review-stats {
     margin-bottom: 20px;
     padding: 10px 15px;
@@ -324,7 +314,6 @@ footer {
     border-left: 4px solid var(--secondary-color);
     border-radius: 4px;
     display: inline-block;
-    /* Để khung vừa vặn với nội dung */
     font-size: 0.95rem;
     color: var(--primary-color);
 }
@@ -334,7 +323,7 @@ footer {
     font-size: 1.1rem;
 }
 
-/* Căn chỉnh lại các nút bấm */
+/* Style for button */
 .review-actions {
     display: flex;
     justify-content: flex-end;
@@ -343,7 +332,7 @@ footer {
     margin-top: 15px;
 }
 
-/* Style cho phần tìm kiếm */
+/* Style for search */
 .search-container {
     background-color: var(--white);
     padding: 15px 20px;
@@ -357,12 +346,10 @@ footer {
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    /* Tự động xuống dòng trên điện thoại */
 }
 
 .search-form input[type="text"] {
     flex-grow: 1;
-    /* Chiếm tối đa không gian còn trống */
     padding: 12px 15px;
     border: 2px solid #e1e8ed;
     border-radius: 8px;
@@ -377,7 +364,6 @@ footer {
 
 .search-btn {
     margin-top: 0;
-    /* Ghi đè margin của class submit-btn cũ */
     padding: 12px 20px;
 }
 
@@ -421,17 +407,12 @@ footer {
 .auth-btn {
     position: absolute;
     right: 20px;
-    /* Cách mép phải 20px */
     top: 50%;
     transform: translateY(-50%);
-    /* Căn giữa theo chiều dọc */
     margin: 0 !important;
-    /* Xóa margin mặc định của thẻ li */
 }
 
-/* Đổi màu một chút để nút này nổi bật hơn (Tùy chọn) */
 .auth-btn a {
-    /*background-color: #a2dc11;*/
     padding: 6px 15px;
     border-radius: 4px;
     transition: background-color 0.3s;
@@ -442,11 +423,7 @@ footer {
     color: white !important;
 }
 
-/* =========================================
-   BỔ SUNG CSS CHO UI/UX ĐỒNG BỘ
-========================================= */
-
-/* 1. Bảng dữ liệu Admin (Admin Table) */
+/* Admin Table */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -454,10 +431,11 @@ footer {
     margin-top: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    overflow: hidden; /* Giúp bo góc được bảng */
+    overflow: hidden;
 }
 
-.admin-table th, .admin-table td {
+.admin-table th,
+.admin-table td {
     padding: 15px;
     border-bottom: 1px solid #eee;
     text-align: left;
@@ -472,7 +450,7 @@ footer {
     background-color: #f8f9fa;
 }
 
-/* 2. Ô input chỉ đọc (Readonly) */
+/* Readonly input */
 input[readonly] {
     background-color: #e9ecef !important;
     color: #6c757d;
@@ -480,7 +458,7 @@ input[readonly] {
     border-color: #ddd !important;
 }
 
-/* 3. Khung nhóm dữ liệu (Fieldset) trong Form */
+/* Fieldset in Form */
 .form-fieldset {
     border: 2px solid #e1e8ed;
     padding: 20px;
@@ -498,7 +476,7 @@ input[readonly] {
     border: 2px solid #e1e8ed;
 }
 
-/* 4. Chữ phân cách ngang (Divider) */
+/* Divider text */
 .divider-text {
     text-align: center;
     margin: 20px 0;
@@ -508,116 +486,121 @@ input[readonly] {
     letter-spacing: 2px;
 }
 
-/* =========================================
-   UI COMPONENTS (HOME, HEADER, REVIEWS)
-========================================= */
+/* UI COMPONENTS (HOME, HEADER, REVIEWS) */
 
-/* Trạng thái User đăng nhập trên Header */
+/* User logged in status on Header */
 .user-info {
-    position: absolute; 
-    top: 20px; 
-    right: 25px; 
-    font-size: 0.95rem; 
-    color: var(--white); 
-    background: rgba(0,0,0,0.2); 
-    padding: 5px 15px; 
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 0.95rem;
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 15px;
     border-radius: 20px;
 }
 
-/* Lưới hiển thị phim (Trang Home) */
+/* Film grid (Home page) */
 .film-grid {
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 25px;
 }
 
 .film-card {
-    background: #fff; 
-    border-radius: 10px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .film-card img {
-    width: 100%; 
-    height: 300px; 
+    width: 100%;
+    height: 300px;
     object-fit: cover;
 }
 
 .no-image-placeholder {
-    width: 100%; 
-    height: 300px; 
-    background: #34495e; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: white; 
-    text-align: center; 
-    padding: 20px; 
+    width: 100%;
+    height: 300px;
+    background: #34495e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
     box-sizing: border-box;
 }
 
 .film-card-info {
-    padding: 15px; 
+    padding: 15px;
     text-align: center;
 }
 
 .film-card-info a {
-    text-decoration: none; 
+    text-decoration: none;
     color: var(--primary-color);
 }
 
 .star-icon {
-    color: #e67e22; 
+    color: #e67e22;
     font-weight: bold;
 }
 
-/* Thẻ hiển thị bài đánh giá (Trang Reviews) */
+/* Review card (Reviews page) */
 .review-card {
-    border: 1px solid #eee; 
-    padding: 20px; 
-    margin-bottom: 20px; 
-    border-radius: 10px; 
-    background: #fff; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .review-image {
-    text-align: center; 
+    text-align: center;
     margin: 15px 0;
 }
 
 .review-image img {
-    max-width: 100%; 
-    max-height: 300px; 
-    border-radius: 5px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Đổi màu riêng cho nút Login / Logout */
-.btn-login { background-color: #27ae60 !important; }
-.btn-login:hover { background-color: #2ecc71 !important; }
+/* Login / Logout button */
+.btn-login {
+    background-color: #27ae60 !important;
+}
 
-.btn-logout { background-color: #c0392b !important; }
-.btn-logout:hover { background-color: #e74c3c !important; }
+.btn-login:hover {
+    background-color: #2ecc71 !important;
+}
 
-/* =========================================
-   UI GIAO DIỆN BÀI VIẾT + BÌNH LUẬN (FLEXBOX)
-========================================= */
+.btn-logout {
+    background-color: #c0392b !important;
+}
 
+.btn-logout:hover {
+    background-color: #e74c3c !important;
+}
+
+/* UI REVIEW + COMMENT */
 .review-wrapper {
     display: flex;
     gap: 0;
     margin-bottom: 30px;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border: 1px solid #eee;
     overflow: hidden;
 }
 
-/* Cột trái: Bài viết (Chiếm 60%) */
+/* Left column: Review (60%) */
 .review-main {
     flex: 6;
     padding: 25px;
@@ -626,13 +609,13 @@ input[readonly] {
     border-right: 1px solid #eee;
 }
 
-/* Cột phải: Bình luận (Chiếm 40%) */
+/* Right column: Comment (40%) */
 .review-sidebar {
     flex: 4;
     background: #fafbfc;
     display: flex;
     flex-direction: column;
-    max-height: 500px; /* Chiều cao cố định để cuộn */
+    max-height: 500px;
 }
 
 .comments-list {
@@ -648,13 +631,28 @@ input[readonly] {
     padding-bottom: 10px;
 }
 
-.comment-item:last-child { border-bottom: none; }
+.comment-item:last-child {
+    border-bottom: none;
+}
 
-.comment-author { font-weight: bold; color: var(--secondary-color); }
-.comment-date { color: #999; font-size: 0.8rem; margin-left: 10px; }
-.comment-text { margin-top: 5px; color: #444; line-height: 1.4; }
+.comment-author {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
 
-/* Khung nhập bình luận */
+.comment-date {
+    color: #999;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.comment-text {
+    margin-top: 5px;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* Comment form */
 .comment-form-container {
     padding: 15px 20px;
     background: #fff;
@@ -673,11 +671,14 @@ input[readonly] {
     font-size: 0.95rem;
 }
 
-.comment-input:focus { border-color: var(--secondary-color); outline: none; }
+.comment-input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
 
-/* Khu vực Footer của cột trái (Chứa Edit/Delete và Nút Comment ảo) */
+/* Footer of left column (Contains Edit/Delete and Comment button) */
 .review-footer {
-    margin-top: auto; /* Tự động đẩy xuống dưới cùng */
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -691,18 +692,25 @@ input[readonly] {
     gap: 15px;
 }
 
-/* Responsive: Trên điện thoại sẽ gộp thành 1 cột */
+/* Responsive: On mobile, stack into 1 column */
 @media (max-width: 768px) {
-    .review-wrapper { flex-direction: column; }
-    .review-main { border-right: none; border-bottom: 2px solid #3498db; }
-    .review-sidebar { max-height: none; }
+    .review-wrapper {
+        flex-direction: column;
+    }
+
+    .review-main {
+        border-right: none;
+        border-bottom: 2px solid #3498db;
+    }
+
+    .review-sidebar {
+        max-height: none;
+    }
 }
 
-/* =========================================
-   UI GIAO DIỆN BÀI VIẾT + BÌNH LUẬN (KHÔNG JS)
-========================================= */
+/* UI REVIEW + COMMENT (NO JS) */
 
-/* GHI ĐÈ THẺ MAIN: Mở rộng tối đa không gian màn hình */
+/* Override main */
 main {
     max-width: 1400px !important;
     background: transparent !important;
@@ -710,30 +718,30 @@ main {
     padding: 0 !important;
 }
 
-/* CHIA 2 CỘT */
+/* 2-COLUMN LAYOUT */
 .reviews-layout {
     display: flex;
     gap: 30px;
     align-items: flex-start;
 }
 
-/* CỘT TRÁI: Danh sách Review (Chiếm 65%) */
+/* Left column: Review list (65%) */
 .reviews-list-col {
     flex: 6.5;
     background: var(--white);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* CỘT PHẢI: Panel Bình luận (Chiếm 35% và Bám dính) */
+/* Right column: Comment panel (35% and sticky) */
 .comments-sidebar {
     flex: 3.5;
     position: sticky;
     top: 80px;
     background: var(--white);
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
@@ -741,7 +749,7 @@ main {
     border: 1px solid #e1e8ed;
 }
 
-/* ĐỊNH DẠNG CHI TIẾT */
+/* Detail format */
 .comment-panel {
     display: flex;
     flex-direction: column;

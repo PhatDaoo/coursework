@@ -3,10 +3,10 @@ include_once 'includes/DatabaseConnection.php';
 include_once 'includes/DatabaseFunctions.php';
 
 try {
-    // Lấy từ khóa tìm kiếm từ URL (phương thức GET)
+    // Get search keyword from URL (GET method)
     $search_keyword = $_GET['search_keyword'] ?? '';
 
-    // Truyền từ khóa vào hàm để lọc danh sách phim
+    // Pass keyword to function to filter film list
     $films = getFilmsWithStats($pdo, $search_keyword);
     
     $title = 'Home - Film Review System';

@@ -5,13 +5,13 @@ include_once 'includes/DatabaseFunctions.php';
 $successMessage = isset($_GET['success']) ? "Register successfully! You can login now." : null;
 
 if (isset($_POST['login'])) {
-    $email = trim($_POST['email']); // Thêm trim() để chống lỗi do gõ thừa dấu cách
+    $email = trim($_POST['email']); // Add trim() to prevent errors from extra spaces
     $password = $_POST['password'];
 
-    // TỐI ƯU: Gọi hàm có sẵn thay vì Raw SQL
+    // OPTIMIZE: Call available function instead of Raw SQL
     $user = getAuthorByEmail($pdo, $email);
 
-    // Kiểm tra mật khẩu bằng password_verify
+    // Check password using password_verify
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         header('Location: index.php');

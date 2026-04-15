@@ -11,10 +11,10 @@ if (!$is_admin) {
 try {
     $title = 'Admin Control Panel';
     
-    // Lấy dữ liệu cho cả 3 mục CRUD 
+    // Get data for 3 CRUD sections 
     $all_films = getFilms($pdo);
     $all_users = query($pdo, 'SELECT * FROM author')->fetchAll();
-    $all_messages = getAllMessages($pdo); // Hàm đã tạo ở bước trước
+    $all_messages = getAllMessages($pdo); 
 
     ob_start();
     include 'templates/admin_dashboard.html.php';

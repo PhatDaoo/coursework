@@ -8,16 +8,16 @@ if (isset($_POST['register'])) {
         $email = trim($_POST['email']);
         $password = $_POST['password'];
 
-        // 1. Kiểm tra email đã tồn tại chưa
+        // 1. Check if email already exists
         $existingUser = getAuthorByEmail($pdo, $email);
 
         if ($existingUser) {
             $error = "This email has been registered. Please choose another email!";
         } else {
-            // 2. Tiến hành đăng ký
+            // 2. Register
             registerAuthor($pdo, $name, $email, $password);
             
-            // 3. Thông báo thành công và chuyển hướng sang Login
+            // 3. Success message and redirect to Login
             header('Location: login.php?success=1');
             exit();
         }

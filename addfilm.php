@@ -2,7 +2,7 @@
 include_once 'includes/DatabaseConnection.php';
 include_once 'includes/DatabaseFunctions.php';
 
-// Bảo vệ an ninh: Chỉ Admin
+//Secure admin
 if (!$is_admin) {
     header('Location: index.php');
     exit();
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
         $publish_date = $_POST['publish_date'];
         $imageName = null;
 
-        // Xử lý upload ảnh Poster (Đã rút gọn logic check thư mục)
+        // Poster upload 
         if (!empty($_FILES['film_image']['name']) && $_FILES['film_image']['error'] == UPLOAD_ERR_OK) {
             if (!is_dir('uploads')) mkdir('uploads', 0777, true);
             
@@ -22,7 +22,6 @@ if (isset($_POST['submit'])) {
             move_uploaded_file($_FILES['film_image']['tmp_name'], 'uploads/' . $imageName);
         }
 
-        // TỐI ƯU: Sử dụng hàm dùng chung thay vì viết Raw SQL
         insertFilm($pdo, $film_name, $publish_date, $imageName);
 
         header('Location: admin.php?success=film_added');
