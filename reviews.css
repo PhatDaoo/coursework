@@ -1,0 +1,788 @@
+/* Thiết lập chung để giao diện nhất quán  */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --white: #ffffff;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header & Navigation */
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+nav {
+    background: #34495e;
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav b {
+    color: #ffffffff;
+    pointer-events: none;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Nội dung chính  */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 60vh;
+}
+
+/* Style cho các bài đánh giá (Reviews) */
+blockquote {
+    border-left: 5px solid var(--secondary-color);
+    background: #f9f9f9;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    position: relative;
+}
+
+blockquote p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+blockquote small {
+    display: block;
+    margin-top: 10px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    border-top: 1px solid #ddd;
+    margin-top: 2rem;
+}
+
+/* Responsive cho thiết bị di động  */
+@media (max-width: 600px) {
+    main {
+        margin: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 5px 0;
+    }
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.review-form label {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.review-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    resize: vertical;
+}
+
+.review-form input[type="submit"] {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.review-form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Container bao bọc form tạo hiệu ứng Card (Thẻ) */
+.form-container {
+    background: var(--white);
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    /* Đổ bóng mềm mại */
+    border-top: 5px solid var(--secondary-color);
+    /* Điểm nhấn viền trên */
+}
+
+.form-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Khoảng cách đều giữa các thành phần */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+/* Kiểu dáng cho ô nhập liệu */
+.form-group textarea {
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    resize: vertical;
+    /* Chỉ cho phép kéo giãn chiều dọc */
+}
+
+/* Hiệu ứng Accessibility (Khả năng truy cập) khi focus */
+.form-group textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+    /* Viền sáng mờ bên ngoài */
+    background-color: var(--white);
+}
+
+/* Kiểu dáng cho nút bấm */
+.submit-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Hiệu ứng khi di chuột và click vào nút */
+.submit-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    /* Nút bấm hơi nẩy lên */
+    box-shadow: 0 4px 10px rgba(41, 128, 185, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    /* Nút lún xuống khi click */
+}
+
+/* Kiểu dáng cho nút Xóa */
+.delete-btn {
+    background-color: #e74c3c;
+    /* Màu đỏ cảnh báo */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.review-form select {
+    padding: 12px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.review-form select:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.movie-title {
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+}
+
+.review-content {
+    font-style: normal;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.review-meta {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.delete-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -20px;
+}
+
+.edit-link {
+    display: inline-block;
+    margin-right: 10px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style cho phần đếm tổng số bài review */
+.review-stats {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #f1f4f8;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 4px;
+    display: inline-block;
+    /* Để khung vừa vặn với nội dung */
+    font-size: 0.95rem;
+    color: var(--primary-color);
+}
+
+.review-stats strong {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Căn chỉnh lại các nút bấm */
+.review-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Style cho phần tìm kiếm */
+.search-container {
+    background-color: var(--white);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* Tự động xuống dòng trên điện thoại */
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1;
+    /* Chiếm tối đa không gian còn trống */
+    padding: 12px 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.search-btn {
+    margin-top: 0;
+    /* Ghi đè margin của class submit-btn cũ */
+    padding: 12px 20px;
+}
+
+.clear-search {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px;
+}
+
+.clear-search:hover {
+    text-decoration: underline;
+}
+
+.review-form input[type="text"],
+.review-form input[type="email"],
+.review-form input[type="password"],
+.review-form input[type="date"] {
+    padding: 12px 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.review-form input[type="text"]:focus,
+.review-form input[type="email"]:focus,
+.review-form input[type="password"]:focus,
+.review-form input[type="date"]:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+    background-color: var(--white);
+}
+
+.auth-btn {
+    position: absolute;
+    right: 20px;
+    /* Cách mép phải 20px */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Căn giữa theo chiều dọc */
+    margin: 0 !important;
+    /* Xóa margin mặc định của thẻ li */
+}
+
+/* Đổi màu một chút để nút này nổi bật hơn (Tùy chọn) */
+.auth-btn a {
+    /*background-color: #a2dc11;*/
+    padding: 6px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.auth-btn a:hover {
+    background-color: #a6800d;
+    color: white !important;
+}
+
+/* =========================================
+   BỔ SUNG CSS CHO UI/UX ĐỒNG BỘ
+========================================= */
+
+/* 1. Bảng dữ liệu Admin (Admin Table) */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden; /* Giúp bo góc được bảng */
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.admin-table thead {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* 2. Ô input chỉ đọc (Readonly) */
+input[readonly] {
+    background-color: #e9ecef !important;
+    color: #6c757d;
+    cursor: not-allowed;
+    border-color: #ddd !important;
+}
+
+/* 3. Khung nhóm dữ liệu (Fieldset) trong Form */
+.form-fieldset {
+    border: 2px solid #e1e8ed;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fafbfc;
+}
+
+.form-fieldset legend {
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 5px 15px;
+    background: var(--white);
+    border-radius: 6px;
+    border: 2px solid #e1e8ed;
+}
+
+/* 4. Chữ phân cách ngang (Divider) */
+.divider-text {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #bdc3c7;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   UI COMPONENTS (HOME, HEADER, REVIEWS)
+========================================= */
+
+/* Trạng thái User đăng nhập trên Header */
+.user-info {
+    position: absolute; 
+    top: 20px; 
+    right: 25px; 
+    font-size: 0.95rem; 
+    color: var(--white); 
+    background: rgba(0,0,0,0.2); 
+    padding: 5px 15px; 
+    border-radius: 20px;
+}
+
+/* Lưới hiển thị phim (Trang Home) */
+.film-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 25px;
+}
+
+.film-card {
+    background: #fff; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.film-card img {
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover;
+}
+
+.no-image-placeholder {
+    width: 100%; 
+    height: 300px; 
+    background: #34495e; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+.film-card-info {
+    padding: 15px; 
+    text-align: center;
+}
+
+.film-card-info a {
+    text-decoration: none; 
+    color: var(--primary-color);
+}
+
+.star-icon {
+    color: #e67e22; 
+    font-weight: bold;
+}
+
+/* Thẻ hiển thị bài đánh giá (Trang Reviews) */
+.review-card {
+    border: 1px solid #eee; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 10px; 
+    background: #fff; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.review-image {
+    text-align: center; 
+    margin: 15px 0;
+}
+
+.review-image img {
+    max-width: 100%; 
+    max-height: 300px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Đổi màu riêng cho nút Login / Logout */
+.btn-login { background-color: #27ae60 !important; }
+.btn-login:hover { background-color: #2ecc71 !important; }
+
+.btn-logout { background-color: #c0392b !important; }
+.btn-logout:hover { background-color: #e74c3c !important; }
+
+/* =========================================
+   UI GIAO DIỆN BÀI VIẾT + BÌNH LUẬN (FLEXBOX)
+========================================= */
+
+.review-wrapper {
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+/* Cột trái: Bài viết (Chiếm 60%) */
+.review-main {
+    flex: 6;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #eee;
+}
+
+/* Cột phải: Bình luận (Chiếm 40%) */
+.review-sidebar {
+    flex: 4;
+    background: #fafbfc;
+    display: flex;
+    flex-direction: column;
+    max-height: 500px; /* Chiều cao cố định để cuộn */
+}
+
+.comments-list {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.comment-item {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #e1e8ed;
+    padding-bottom: 10px;
+}
+
+.comment-item:last-child { border-bottom: none; }
+
+.comment-author { font-weight: bold; color: var(--secondary-color); }
+.comment-date { color: #999; font-size: 0.8rem; margin-left: 10px; }
+.comment-text { margin-top: 5px; color: #444; line-height: 1.4; }
+
+/* Khung nhập bình luận */
+.comment-form-container {
+    padding: 15px 20px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.comment-input:focus { border-color: var(--secondary-color); outline: none; }
+
+/* Khu vực Footer của cột trái (Chứa Edit/Delete và Nút Comment ảo) */
+.review-footer {
+    margin-top: auto; /* Tự động đẩy xuống dưới cùng */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px dashed #eee;
+    padding-top: 15px;
+}
+
+.review-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Responsive: Trên điện thoại sẽ gộp thành 1 cột */
+@media (max-width: 768px) {
+    .review-wrapper { flex-direction: column; }
+    .review-main { border-right: none; border-bottom: 2px solid #3498db; }
+    .review-sidebar { max-height: none; }
+}
+
+/* =========================================
+   UI GIAO DIỆN BÀI VIẾT + BÌNH LUẬN (KHÔNG JS)
+========================================= */
+
+/* GHI ĐÈ THẺ MAIN: Mở rộng tối đa không gian màn hình */
+main {
+    max-width: 1400px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* CHIA 2 CỘT */
+.reviews-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* CỘT TRÁI: Danh sách Review (Chiếm 65%) */
+.reviews-list-col {
+    flex: 6.5;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* CỘT PHẢI: Panel Bình luận (Chiếm 35% và Bám dính) */
+.comments-sidebar {
+    flex: 3.5;
+    position: sticky;
+    top: 80px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e1e8ed;
+}
+
+/* ĐỊNH DẠNG CHI TIẾT */
+.comment-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.comments-header {
+    padding: 20px;
+    background: var(--primary-color);
+    color: white;
+    margin: 0;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-panel-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.close-panel-btn:hover {
+    opacity: 1;
+}
+
+.comment-input-box {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    resize: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.comment-input-box:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
