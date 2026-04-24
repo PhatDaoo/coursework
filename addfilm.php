@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         exit();
 
     } catch (PDOException $e) {
-        $title = 'Lỗi hệ thống';
+        $title = 'Error';
         $output = 'Error: ' . $e->getMessage();
     }
 } else {

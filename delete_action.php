@@ -36,7 +36,6 @@ try {
             die("Error: You do not have permission to delete this review!");
         }
         
-        // Delete image from server
         if (!empty($review['image']) && file_exists('uploads/' . $review['image'])) {
             unlink('uploads/' . $review['image']); 
         }

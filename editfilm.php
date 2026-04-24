@@ -41,7 +41,6 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    // Get film
     $film = query($pdo, 'SELECT * FROM `film` WHERE `id` = :id', [':id' => $_GET['id']])->fetch();
     
     if (!$film) {
